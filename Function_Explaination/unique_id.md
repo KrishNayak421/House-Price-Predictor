@@ -1,3 +1,4 @@
+```python
 from zlib import crc32
 
 def is_id_in_test_set(identifier,test_ratio):
@@ -7,6 +8,7 @@ def split*data_with_id_hash(data,test_ratio,id_column):
 ids = data[id_column]
 in_test_set = ids.apply(lambda id* : is*id_in_test_set(id*,test_ratio))
 return data.loc[~in_test_set],data.loc[in_test_set]
+```
 
 ## 1. Importing the CRC32 Function
 
