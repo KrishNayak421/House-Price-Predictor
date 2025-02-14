@@ -16,3 +16,5 @@ import seaborn as sns
 - data.hist(args)...etc
 
 4. separate the test data and train data
+
+5. edit and transform the data to final data

@@ -12,7 +12,9 @@ return data.loc[~in_test_set],data.loc[in_test_set]
 
 ## 1. Importing the CRC32 Function
 
+```python
 from zlib import crc32
+```
 
 #### What it does:
 
@@ -24,8 +26,10 @@ crc32 computes a 32-bit hash (a number) for a given input. In this context, itâ€
 
 ## Defining is_id_in_test_set Function
 
+```python
 def is_id_in_test_set(identifier, test_ratio):
 return crc32(np.int64(identifier)) < test_ratio \* 2\*\*32
+```
 
 #### Input Parameters:
 
@@ -46,10 +50,12 @@ This method assigns each instance a number based on its identifier. If the numbe
 
 ## 3. Defining split_data_with_id_hash Function
 
+```python
 def split*data_with_id_hash(data, test_ratio, id_column):
 ids = data[id_column]
 in_test_set = ids.apply(lambda id* : is*id_in_test_set(id*, test_ratio))
 return data.loc[~in_test_set], data.loc[in_test_set]
+```
 
 #### Input Parameters:
 
@@ -75,8 +81,10 @@ This function provides a stable way to split data into train and test sets based
 
 ## 4. Using the Row Index as an Identifier
 
+```python
 housing_with_id = data.reset_index() ## Adding index column
 train_set, test_set = split_data_with_id_hash(housing_with_id, 0.2, "index") ## Calling the function
+```
 
 data.reset_index():
 This resets the DataFrameâ€™s index and adds the old index as a new column named "index".
@@ -96,8 +104,10 @@ When using the row index as a unique identifier, ensure that new data is always 
 
 ## 5. Creating a Unique ID from Stable Features
 
+```python
 housing_with_id["id"] = data["longitude"] \* 1000 + data["latitude"] ## Creating a unique id
 train_set, test_set = split_data_with_id_hash(housing_with_id, 0.2, "index") ## Calling the function
+```
 
 #### Creating an ID:
 
