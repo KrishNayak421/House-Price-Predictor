@@ -32,3 +32,5 @@ import seaborn as sns
 10. Clean the data
 
 11. handle text and categorial attributes
+
+12. Feature scaling and transforming
