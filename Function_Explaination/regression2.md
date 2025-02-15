@@ -112,4 +112,4 @@ predictions
 - **Advantage:**  
   This approach is particularly useful when the target variable has a wide range or non-normal distribution, as scaling can help improve model performance and interpretability.
 
-This method encapsulates the transformation process, making your code cleaner and reducing the chance for errors when handling data scaling for regression tasks. [[regression1.md]]
+This method encapsulates the transformation process, making your code cleaner and reducing the chance for errors when handling data scaling for regression tasks.
